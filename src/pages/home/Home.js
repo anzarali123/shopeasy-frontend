@@ -1,23 +1,23 @@
 import { useEffect } from "react";
 import { Slider } from "../../components";
-import { AdminOnlyRoute, Product } from "../../components/index";
+import { Product } from "../../components/index";
 
 const Home = () => {
   const url = window.location.href;
 
   useEffect(() => {
+    const scrollToProducts = () => {
+      if (url.includes("#products")) {
+        window.scrollTo({
+          top: 700,
+          behavior: "smooth",
+        });
+      }
+      return;
+    };
     scrollToProducts();
-  }, []);
+  }, [url]);
 
-  const scrollToProducts = () => {
-    if (url.includes("#products")) {
-      window.scrollTo({
-        top: 700,
-        behavior: "smooth",
-      });
-    }
-    return;
-  };
   return (
     <>
       <Slider />
