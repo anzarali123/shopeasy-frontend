@@ -30,7 +30,7 @@ const Reset = () => {
       <ToastContainer />
       <section className={`${styles.auth} container`}>
         <div className={styles.img}>
-          <img src={forgotImg} alt="forgot image" width="400px" />
+          <img src={forgotImg} alt="forgot" width="400px" />
         </div>
         <Card>
           <div className={`${styles.form}`}>

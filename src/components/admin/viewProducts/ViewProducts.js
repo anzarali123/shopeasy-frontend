@@ -3,7 +3,6 @@ import styles from "./ViewProducts.module.scss";
 import { toast } from "react-toastify";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db, storage } from "../../../firebase/config";
-import { Loader } from "../../index";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { deleteObject, ref } from "firebase/storage";
@@ -22,14 +21,14 @@ import Search from "../../search/Search";
 import Pagination from "../../pagination/Pagination";
 
 const ViewProducts = () => {
-  const { data, loading } = useFetchCollection("products");
+  const { data } = useFetchCollection("products");
   const [search, setSearch] = useState("");
   const products = useSelector(selectProducts);
   const filteredProducts = useSelector(selectFilteredProducts);
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(5);
+  const [productsPerPage] = useState(5);
   // Get current products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -86,7 +85,7 @@ const ViewProducts = () => {
 
   return (
     <>
-      {loading && <Loader />}
+      {/* {loading && <Loader />} */}
       <div className={styles.table}>
         <h2>All Products</h2>
         <div className={styles.search}>

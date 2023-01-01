@@ -7,29 +7,28 @@ const useFetchCollection = (collectionName) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getCollection = () => {
-    try {
-      const docRef = collection(db, collectionName);
-      const q = query(docRef, orderBy("createdAt", "desc"));
-
-      onSnapshot(q, (snapshot) => {
-        const allData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-
-        setData(allData);
-      });
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      toast.error(error.message);
-    }
-  };
-
   useEffect(() => {
+    const getCollection = () => {
+      try {
+        const docRef = collection(db, collectionName);
+        const q = query(docRef, orderBy("createdAt", "desc"));
+
+        onSnapshot(q, (snapshot) => {
+          const allData = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+
+          setData(allData);
+        });
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        toast.error(error.message);
+      }
+    };
     getCollection();
-  }, []);
+  }, [collectionName]);
 
   return { data, loading };
 };

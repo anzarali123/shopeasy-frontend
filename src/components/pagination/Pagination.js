@@ -10,7 +10,7 @@ const Pagination = ({
   const pageNumbers = [];
   const totalPages = totalProducts / productsPerPage;
   // Limit the page number shown
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [pageNumberLimit] = useState(5);
   const [maxpageNumberLimit, setmaxPageNumberLimit] = useState(5);
   const [minpageNumberLimit, setminPageNumberLimit] = useState(0);
 
@@ -60,7 +60,7 @@ const Pagination = ({
               {number}
             </li>
           );
-        }
+        } else return "";
       })}
       <li
         onClick={paginateNext}

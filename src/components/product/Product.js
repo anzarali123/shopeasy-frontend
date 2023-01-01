@@ -49,6 +49,7 @@ const Product = () => {
         <div className={styles.content}>
           {loading ? (
             <img
+              alt=""
               src={Spinner}
               style={{ width: "50px" }}
               className="--center-all"

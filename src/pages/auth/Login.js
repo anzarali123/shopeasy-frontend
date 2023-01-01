@@ -60,7 +60,6 @@ const Login = () => {
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        const user = result.user;
         toast.success("Login Successfully...");
         redirectUser();
       })
@@ -74,7 +73,7 @@ const Login = () => {
       <ToastContainer />
       <section className={`${styles.auth} container`}>
         <div className={styles.img}>
-          <img src={loginImg} alt="login image" width="400px" />
+          <img src={loginImg} alt="login" width="400px" />
         </div>
         <Card>
           <div className={`${styles.form}`}>

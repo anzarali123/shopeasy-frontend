@@ -16,7 +16,7 @@ import {
   STORE_ORDERS,
 } from "../../../redux/slice/orderSlice";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
-import Chart from "../../chart/Chart";
+// import Chart from "../../chart/Chart";
 
 //Icons
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />;
@@ -67,9 +67,7 @@ const Home = () => {
           icon={ordersIcon}
         />
       </div>
-      <div>
-        <Chart />
-      </div>
+      <div>{/* <Chart /> */}</div>
     </div>
   );
 };
